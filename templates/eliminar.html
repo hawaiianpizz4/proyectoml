@@ -1,0 +1,48 @@
+
+
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>   
+   
+    table{
+        text-align: left;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+
+    th, td{        
+        padding: 8px;
+    }
+
+    thead{        
+        color: black;
+        
+    }
+</style>
+
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombres</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for ruta in ubicaciones %}
+        <tr>
+            <td>{{ ruta}}</td>
+            
+            <td>                
+                <a href="/delete/{{ruta}}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

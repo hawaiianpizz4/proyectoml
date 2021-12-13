@@ -1,0 +1,28 @@
+<form action="">
+
+    <input type="text">
+
+</form>
+
+
+<table>
+    <thead>
+        <tr>
+            {% for nombre in encabezado %}
+            <td>
+                {{ nombre }}
+            </td>
+            {% endfor %}           
+        </tr>
+    </thead>
+    <tbody>
+        {% for fila in matriz %}
+        <tr>
+            {% for valor in fila %}
+                <td>{{ valor}}</td>
+            {% endfor %}
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

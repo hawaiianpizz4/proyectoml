@@ -1,0 +1,139 @@
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+   
+    #opciones1{
+        display: inline-block;
+        margin-left: 30px;
+    }
+    #opciones2{
+        display: inline-block;
+        margin-left: 30px;
+    }
+    #opciones3{
+        display: inline-block;
+        margin-left: 30px;
+    }
+
+    #boton{
+        margin-left: 690px;
+    }
+    table{
+        text-align: left;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+
+    th, td{
+        border: solid 1px black;
+        padding: 20px;
+    }
+
+    thead{
+        background-color: #246355;
+        border-bottom: solid 5px #0F362D;
+        color: white;
+        
+    }
+
+    tr:nth-child(even){
+        background-color: #ddd;
+    }
+
+  
+
+
+
+</style>
+
+<h1>Procesos de Similitud</h1><br>
+
+<form action="/calcular" method="POST">
+<div id="opciones1">
+<input type="radio" class="btn-check" name="options" id="option1" value="1" autocomplete="off" >
+<label class="btn btn-outline-success" for="option1">Coseno</label>
+</div>
+
+<div id="opciones2">
+<input type="radio" class="btn-check" name="options" id="option2" value="2" autocomplete="off">
+<label class="btn btn-outline-success" for="option2">Jaccard</label>
+</div>
+
+<div id="opciones3">
+<input type="radio" class="btn-check" name="options" id="option3" value="3" autocomplete="off">
+<label class="btn btn-outline-success" for="option3">Similitud Forma</label>
+</div>
+
+<button id="boton" type="submit" class="btn btn-success">Calcular</button>
+
+</form>
+
+<br>
+<br>
+<br>
+
+<h1>{{nombre}}</h1>
+<br>
+<h3>Códigos</h3>
+<div id="main-container">
+<table>
+    <thead>
+        <tr>
+            {% for nombre in encabezado2 %}
+            <td>                
+                {{ nombre }}
+            </td>
+            {% endfor %}           
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            {% for nombreAr in nombresArchivos %}
+                <td>{{ nombreAr}}</td>
+            {% endfor %}
+            
+        </tr>
+       
+    </tbody>
+</table>
+</div>
+<br>
+
+
+
+<table>
+    <thead>
+        <tr>
+            {% for nombre in encabezado %}
+            <td>
+                {{ nombre }}
+            </td>
+            {% endfor %}           
+        </tr>
+    </thead>
+    <tbody>
+        {% for fila in matriz %}
+        <tr>
+            {% for valor in fila %}
+                <td>{{ valor}}</td>
+            {% endfor %}
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+{% endblock %}
